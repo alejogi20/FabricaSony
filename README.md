@@ -1,0 +1,2 @@
+# FabricaSony
+proyecto sistemas operativos
