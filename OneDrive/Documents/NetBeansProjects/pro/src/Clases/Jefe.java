@@ -10,5 +10,5 @@ package Clases;
  * @author AROMERO
  */
 public class Jefe {
-    
+    private String name;
 }
