@@ -27,7 +27,8 @@ public class Test {
         productor3.start();
         
         
-        productor1.producirCamara(1);
+        productor1.producirPantalla(1);
+        productor2.producirCamara(1);
         
         ensamb1.start();
 

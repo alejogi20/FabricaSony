@@ -20,11 +20,7 @@ public class Almacen {
     private int pantalla;
     private int telefonos;
 
-    public Semaphore mutexCamaras;
-    public Semaphore mutexPinCarga;
-    public Semaphore mutexBotones;
-    public Semaphore mutexPantalla;
-    public Semaphore mutexTelefonos;
+    public Semaphore mutexProduccion;
 
     public Almacen(int camaras, int pinCarga, int botones, int pantalla, int telefonos) {
         this.camaras = camaras;
@@ -32,7 +28,8 @@ public class Almacen {
         this.botones = botones;
         this.pantalla = pantalla;
         this.telefonos = telefonos;
-        this.mutexCamaras = new Semaphore(1);
+        this.mutexProduccion = new Semaphore(1);
+
     }
 
     public int getCamaras() {

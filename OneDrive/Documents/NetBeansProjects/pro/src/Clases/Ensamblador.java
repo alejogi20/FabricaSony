@@ -35,7 +35,7 @@ public class Ensamblador extends Thread {
         
     public void ensamblarTelefono(int cantidad) {
         try {
-            Test.almacen.mutexCamaras.acquire();
+            Test.almacen.mutexProduccion.acquire();
             int numTelefonos = Test.almacen.getTelefonos();
             int numCamaras = Test.almacen.getCamaras();
             int numPinCarga = Test.almacen.getPinCarga();
@@ -52,7 +52,7 @@ public class Ensamblador extends Thread {
                 System.out.println("Telefonos en almacen " + Test.almacen.getTelefonos());
                 Thread.sleep(2000);
             }
-            Test.almacen.mutexCamaras.release();
+            Test.almacen.mutexProduccion.release();
             
         } catch (InterruptedException ex) {
             Logger.getLogger(Almacen.class.getName()).log(Level.SEVERE, null, ex);
