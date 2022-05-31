@@ -11,6 +11,7 @@ package ClasesXperia1IV;
 public class Test {
 
     public static Almacen almacen;
+    public static Contabilidad contabilidad;
 
     /**
      * @param args the command line arguments
@@ -20,6 +21,7 @@ public class Test {
         //Almacen
 
         almacen = new Almacen(0, 0, 0, 0, 0);
+        contabilidad = new Contabilidad();
         
         //Productores camaras
         
@@ -36,13 +38,13 @@ public class Test {
         
         Productor productor9 = new Productor("p1", "pantalla", 3);
         Productor productor10 = new Productor("p2", "pantalla", 3);
-        Productor productor11 = new Productor("p3", "pantalla", 3);
         
         //productores botones
         
-        Productor productor12 = new Productor("b1", "botones", 4);
-        Productor productor13 = new Productor("b2", "botones", 4);
-        Productor productor14 = new Productor("b3", "botones", 4);
+        Productor productor11 = new Productor("b1", "botones", 4);
+        Productor productor12 = new Productor("b2", "botones", 4);
+        Productor productor13 = new Productor("b3", "botones", 4);
+        Productor productor14 = new Productor("b4", "botones", 4);
         
         //Productores pin de carga
         
@@ -54,6 +56,7 @@ public class Test {
         Ensamblador ensamblador2 = new Ensamblador(6, "e2");
         Ensamblador ensamblador3 = new Ensamblador(6, "e3");
         Ensamblador ensamblador4 = new Ensamblador(6, "e4");
+
 
         
         productor1.start();
@@ -77,6 +80,8 @@ public class Test {
         ensamblador2.start();
         ensamblador3.start();
         ensamblador4.start();
+        
+
 
     }
 

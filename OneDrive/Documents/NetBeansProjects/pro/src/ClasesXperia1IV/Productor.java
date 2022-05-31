@@ -31,10 +31,11 @@ public class Productor extends Thread {
     public void run() {
         while (this.stop) {
 
-            producirCamara(1);
+            
             producirPantalla(1);
             producirBotones(1);
             producirPinCarga(1);
+            producirCamara(1);
 
         }
 
@@ -42,6 +43,9 @@ public class Productor extends Thread {
 
     public void producirCamara(int cantidad) {
         try {
+            //double salarios = Test.contabilidad.getSalariosProd();
+            //Test.contabilidad.setSalariosProd(this.salario + salarios);
+            //System.out.println("Salario => " + Test.contabilidad.getSalariosProd());
             Test.almacen.mutexCamaras.acquire();
             int numCamaras = Test.almacen.getCamaras();
             if (numCamaras + cantidad <= 20) {
@@ -51,7 +55,7 @@ public class Productor extends Thread {
                 Thread.sleep(3000);
             }
             Test.almacen.mutexCamaras.release();
-            Test.almacen.mutexEnsamblaje.release();
+            //Test.almacen.mutexEnsamblaje.release();
 
         } catch (InterruptedException ex) {
             Logger.getLogger(Almacen.class.getName()).log(Level.SEVERE, null, ex);
@@ -69,7 +73,7 @@ public class Productor extends Thread {
                 Thread.sleep(1000/3);
             }
             Test.almacen.mutexPantallas.release();
-            Test.almacen.mutexEnsamblaje.release();
+            //Test.almacen.mutexEnsamblaje.release();
 
         } catch (InterruptedException ex) {
             Logger.getLogger(Almacen.class.getName()).log(Level.SEVERE, null, ex);
@@ -87,7 +91,7 @@ public class Productor extends Thread {
                 Thread.sleep(1000);
             }
             Test.almacen.mutexPinCarga.release();
-            Test.almacen.mutexEnsamblaje.release();
+            //Test.almacen.mutexEnsamblaje.release();
 
         } catch (InterruptedException ex) {
             Logger.getLogger(Almacen.class.getName()).log(Level.SEVERE, null, ex);
@@ -96,8 +100,7 @@ public class Productor extends Thread {
 
     public void producirBotones(int cantidad) {
         try {
-            Test.almacen.mutexBotones.acquire();
-            
+            Test.almacen.mutexBotones.acquire();           
             int numBotones = Test.almacen.getBotones();
             if (numBotones + cantidad <= 45) {
 
@@ -106,7 +109,7 @@ public class Productor extends Thread {
                 Thread.sleep(1000);
             }
             Test.almacen.mutexBotones.release();
-            Test.almacen.mutexEnsamblaje.release();
+            //Test.almacen.mutexEnsamblaje.release();
 
         } catch (InterruptedException ex) {
             Logger.getLogger(Almacen.class.getName()).log(Level.SEVERE, null, ex);
