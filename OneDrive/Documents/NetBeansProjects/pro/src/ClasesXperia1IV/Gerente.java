@@ -10,5 +10,8 @@ package ClasesXperia1IV;
  * @author AROMERO
  */
 public class Gerente {
+    private int salario;
+    
+    
     
 }

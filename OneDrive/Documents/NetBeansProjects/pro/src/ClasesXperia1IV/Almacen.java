@@ -27,6 +27,7 @@ public class Almacen {
     public Semaphore mutexEnsamblaje;
 
     public Almacen(int camaras, int pinCarga, int botones, int pantalla, int telefonos) {
+        
         this.camaras = camaras;
         this.pinCarga = pinCarga;
         this.botones = botones;

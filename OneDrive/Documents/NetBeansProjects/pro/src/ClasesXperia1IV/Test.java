@@ -57,7 +57,9 @@ public class Test {
         Ensamblador ensamblador3 = new Ensamblador(6, "e3");
         Ensamblador ensamblador4 = new Ensamblador(6, "e4");
 
-
+        //Jefe
+        
+        Jefe jefecito = new Jefe();
         
         productor1.start();
         productor2.start();
@@ -80,6 +82,9 @@ public class Test {
         ensamblador2.start();
         ensamblador3.start();
         ensamblador4.start();
+        jefecito.start();
+        
+        
         
 
 
