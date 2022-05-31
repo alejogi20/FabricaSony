@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Clases;
+package ClasesXperia1IV;
 
 import java.util.concurrent.Semaphore;
 import java.util.logging.Level;
@@ -20,7 +20,11 @@ public class Almacen {
     private int pantalla;
     private int telefonos;
 
-    public Semaphore mutexProduccion;
+    public Semaphore mutexCamaras;
+    public Semaphore mutexPantallas;
+    public Semaphore mutexPinCarga;
+    public Semaphore mutexBotones;
+    public Semaphore mutexEnsamblaje;
 
     public Almacen(int camaras, int pinCarga, int botones, int pantalla, int telefonos) {
         this.camaras = camaras;
@@ -28,7 +32,11 @@ public class Almacen {
         this.botones = botones;
         this.pantalla = pantalla;
         this.telefonos = telefonos;
-        this.mutexProduccion = new Semaphore(1);
+        this.mutexCamaras = new Semaphore(1);
+        this.mutexPantallas = new Semaphore(1);
+        this.mutexBotones = new Semaphore(1);
+        this.mutexPinCarga = new Semaphore(1);
+        this.mutexEnsamblaje = new Semaphore(1);
 
     }
 

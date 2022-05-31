@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Clases;
+package ClasesXperia1IV;
 
 /**
  *
  * @author AROMERO
  */
-public class Gerente {
-    
+public class Jefe {
+    private String name;
 }

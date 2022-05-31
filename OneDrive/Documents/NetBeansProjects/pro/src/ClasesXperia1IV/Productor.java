@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Clases;
+package ClasesXperia1IV;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -33,6 +33,8 @@ public class Productor extends Thread {
 
             producirCamara(1);
             producirPantalla(1);
+            producirBotones(1);
+            producirPinCarga(1);
 
         }
 
@@ -40,15 +42,16 @@ public class Productor extends Thread {
 
     public void producirCamara(int cantidad) {
         try {
-            Test.almacen.mutexProduccion.acquire();
+            Test.almacen.mutexCamaras.acquire();
             int numCamaras = Test.almacen.getCamaras();
             if (numCamaras + cantidad <= 20) {
 
                 Test.almacen.setCamaras(numCamaras + cantidad);
-                System.out.println("camaras en almacen " + Test.almacen.getCamaras());
+                System.out.println("Camaras en almacen => " + Test.almacen.getCamaras());
                 Thread.sleep(3000);
             }
-            Test.almacen.mutexProduccion.release();
+            Test.almacen.mutexCamaras.release();
+            Test.almacen.mutexEnsamblaje.release();
 
         } catch (InterruptedException ex) {
             Logger.getLogger(Almacen.class.getName()).log(Level.SEVERE, null, ex);
@@ -57,15 +60,16 @@ public class Productor extends Thread {
 
     public void producirPantalla(int cantidad) {
         try {
-            Test.almacen.mutexProduccion.acquire();
+            Test.almacen.mutexPantallas.acquire();
             int numPantalla = Test.almacen.getPantalla();
             if (numPantalla + cantidad <= 40) {
 
                 Test.almacen.setPantalla(numPantalla + cantidad);
-                System.out.println("Pantallas en almacen " + Test.almacen.getPantalla());
+                System.out.println("Pantallas en almacen => " + Test.almacen.getPantalla());
                 Thread.sleep(1000/3);
             }
-            Test.almacen.mutexProduccion.release();
+            Test.almacen.mutexPantallas.release();
+            Test.almacen.mutexEnsamblaje.release();
 
         } catch (InterruptedException ex) {
             Logger.getLogger(Almacen.class.getName()).log(Level.SEVERE, null, ex);
@@ -74,15 +78,16 @@ public class Productor extends Thread {
 
     public void producirPinCarga(int cantidad) {
         try {
-            Test.almacen.mutexProduccion.acquire();
+            Test.almacen.mutexPinCarga.acquire();
             int numPinCarga = Test.almacen.getPinCarga();
             if (numPinCarga + cantidad <= 15) {
 
                 Test.almacen.setPinCarga(numPinCarga + cantidad);
-                System.out.println("Pines de carga en almacen " + Test.almacen.getPinCarga());
+                System.out.println("Pines de carga en almacen => " + Test.almacen.getPinCarga());
                 Thread.sleep(1000);
             }
-            Test.almacen.mutexProduccion.release();
+            Test.almacen.mutexPinCarga.release();
+            Test.almacen.mutexEnsamblaje.release();
 
         } catch (InterruptedException ex) {
             Logger.getLogger(Almacen.class.getName()).log(Level.SEVERE, null, ex);
@@ -91,15 +96,17 @@ public class Productor extends Thread {
 
     public void producirBotones(int cantidad) {
         try {
-            Test.almacen.mutexProduccion.acquire();
+            Test.almacen.mutexBotones.acquire();
+            
             int numBotones = Test.almacen.getBotones();
             if (numBotones + cantidad <= 45) {
 
                 Test.almacen.setBotones(numBotones + cantidad);
-                System.out.println("camaras en almacen " + Test.almacen.getBotones());
+                System.out.println("Botones en almacen => " + Test.almacen.getBotones());
                 Thread.sleep(1000);
             }
-            Test.almacen.mutexProduccion.release();
+            Test.almacen.mutexBotones.release();
+            Test.almacen.mutexEnsamblaje.release();
 
         } catch (InterruptedException ex) {
             Logger.getLogger(Almacen.class.getName()).log(Level.SEVERE, null, ex);
