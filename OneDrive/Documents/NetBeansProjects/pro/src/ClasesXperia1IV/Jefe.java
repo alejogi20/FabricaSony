@@ -5,7 +5,9 @@
  */
 package ClasesXperia1IV;
 
+import static java.lang.Math.random;
 import java.util.Random;
+import java.util.concurrent.Semaphore;
 
 /**
  *
@@ -14,12 +16,10 @@ import java.util.Random;
 public class Jefe extends Thread {
 
     private double salario;
-    private int countDown;
     private boolean stop;
 
     public Jefe() {
         this.salario = 7;
-        this.countDown = 30;
         this.stop = true;
 
     }
@@ -32,25 +32,48 @@ public class Jefe extends Thread {
     public void run() {
         while (this.stop) {
             conteoDias();
+            ClashRoyal();
         }
 
     }
 
     public void conteoDias() {
         try {
-            if(this.countDown > 0){
-            this.countDown = this.countDown - 1;
-            System.out.println("Quedan " + this.countDown + " dias");
-            Thread.sleep((1000 / 24) * 7);
+            Test1.almacen.getMutexConteoDias().acquire();
+            int countDown = Test1.almacen.getConteoDias();
+            if (countDown > 0) {
+                
+                Thread.sleep((1000 / 24) * 7); // 6 + 1 horas
+                
+                Test1.almacen.setConteoDias(countDown - 1);
 
-            //Jugando y revisando papeles
-            Random random = new Random();
-            Thread.sleep(random.nextInt(15));
+                System.out.println("Quedan " + countDown + " dias");
+
+                Thread.sleep(10000); //Deberia ser 1000
+
+            } else {
+                Test1.almacen.setConteoDias(30);
             }
-
+            Test1.almacen.getMutexConteoDias().release();
         } catch (InterruptedException ex) {
             //
         }
+    }
+
+    public void ClashRoyal() {
+        try {
+            Test1.almacen.getMutexConteoDias().acquire();
+                
+            Thread.sleep((long) Math.floor(Math.random()*(0.69 - 0.03 +1)+(0.03))); // 15 + 6 minutos : 21 minutos
+
+                System.out.println("El jefe esta jugando Clash Royal");
+
+            Test1.almacen.getMutexConteoDias().release();
+        } catch (InterruptedException ex) {
+            //
+        }
+
+
     }
 
 }

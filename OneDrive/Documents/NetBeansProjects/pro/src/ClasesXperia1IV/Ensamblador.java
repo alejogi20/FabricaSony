@@ -34,34 +34,34 @@ public class Ensamblador extends Thread {
 
     public void ensamblarTelefono(int cantidad) {
         try {
-            Test.almacen.mutexCamaras.acquire();
-            Test.almacen.mutexPantallas.acquire();
-            Test.almacen.mutexPinCarga.acquire();
-            Test.almacen.mutexBotones.acquire();
-            Test.almacen.mutexEnsamblaje.acquire();
+            Test1.almacen.getMutexCamaras().acquire();
+            Test1.almacen.getMutexPantallas().acquire();
+            Test1.almacen.getMutexPinCarga().acquire();
+            Test1.almacen.getMutexBotones().acquire();
+            Test1.almacen.getMutexEnsamblaje().acquire();
 
-            int numTelefonos = Test.almacen.getTelefonos();
-            int numCamaras = Test.almacen.getCamaras();
-            int numPinCarga = Test.almacen.getPinCarga();
-            int numPantalla = Test.almacen.getPantalla();
-            int numBotones = Test.almacen.getBotones();
+            int numTelefonos = Test1.almacen.getTelefonos();
+            int numCamaras = Test1.almacen.getCamaras();
+            int numPinCarga = Test1.almacen.getPinCarga();
+            int numPantalla = Test1.almacen.getPantalla();
+            int numBotones = Test1.almacen.getBotones();
 
             if ((numCamaras - 4) > 0 && (numPinCarga - 1) > 0 && (numPantalla - 1) > 0 && (numBotones - 3) > 0) {
 
-                Test.almacen.setTelefonos(numTelefonos + cantidad);
-                Test.almacen.setBotones(numBotones - 3);
-                Test.almacen.setCamaras(numCamaras - 4);
-                Test.almacen.setPantalla(numPantalla - 1);
-                Test.almacen.setPinCarga(numPinCarga - 1);
-                System.out.println("Telefonos en almacen " + Test.almacen.getTelefonos());
+                Test1.almacen.setTelefonos(numTelefonos + cantidad);
+                Test1.almacen.setBotones(numBotones - 3);
+                Test1.almacen.setCamaras(numCamaras - 4);
+                Test1.almacen.setPantalla(numPantalla - 1);
+                Test1.almacen.setPinCarga(numPinCarga - 1);
+                System.out.println("Telefonos en almacen " + Test1.almacen.getTelefonos());
                 Thread.sleep(2000);
 
             }
-            Test.almacen.mutexCamaras.release();
-            Test.almacen.mutexPantallas.release();
-            Test.almacen.mutexPinCarga.release();
-            Test.almacen.mutexBotones.release();
-            Test.almacen.mutexEnsamblaje.release();
+            Test1.almacen.getMutexCamaras().release();
+            Test1.almacen.getMutexPantallas().release();
+            Test1.almacen.getMutexPinCarga().release();
+            Test1.almacen.getMutexBotones().release();
+            Test1.almacen.getMutexEnsamblaje().release();
 
         } catch (InterruptedException ex) {
             Logger.getLogger(Almacen.class.getName()).log(Level.SEVERE, null, ex);

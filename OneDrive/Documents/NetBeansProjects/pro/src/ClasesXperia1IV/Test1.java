@@ -8,7 +8,7 @@ package ClasesXperia1IV;
  *
  * @author AROMERO
  */
-public class Test {
+public class Test1 {
 
     public static Almacen almacen;
     public static Contabilidad contabilidad;
@@ -19,6 +19,8 @@ public class Test {
     public static void main(String[] args) {
         
         //Almacen
+        
+        
 
         almacen = new Almacen(0, 0, 0, 0, 0);
         contabilidad = new Contabilidad();

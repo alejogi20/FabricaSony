@@ -43,18 +43,18 @@ public class Productor extends Thread {
 
     public void producirCamara(int cantidad) {
         try {
-            //double salarios = Test.contabilidad.getSalariosProd();
+            //double salarios = Test1.contabilidad.getSalariosProd();
             //Test.contabilidad.setSalariosProd(this.salario + salarios);
-            //System.out.println("Salario => " + Test.contabilidad.getSalariosProd());
-            Test.almacen.mutexCamaras.acquire();
-            int numCamaras = Test.almacen.getCamaras();
+            //System.out.println("Salario => " + Test1.contabilidad.getSalariosProd());
+            Test1.almacen.getMutexCamaras().acquire();
+            int numCamaras = Test1.almacen.getCamaras();
             if (numCamaras + cantidad <= 20) {
 
-                Test.almacen.setCamaras(numCamaras + cantidad);
-                System.out.println("Camaras en almacen => " + Test.almacen.getCamaras());
+                Test1.almacen.setCamaras(numCamaras + cantidad);
+                System.out.println("Camaras en almacen => " + Test1.almacen.getCamaras());
                 Thread.sleep(3000);
             }
-            Test.almacen.mutexCamaras.release();
+            Test1.almacen.getMutexCamaras().release();
             //Test.almacen.mutexEnsamblaje.release();
 
         } catch (InterruptedException ex) {
@@ -64,15 +64,15 @@ public class Productor extends Thread {
 
     public void producirPantalla(int cantidad) {
         try {
-            Test.almacen.mutexPantallas.acquire();
-            int numPantalla = Test.almacen.getPantalla();
+            Test1.almacen.getMutexPantallas().acquire();
+            int numPantalla = Test1.almacen.getPantalla();
             if (numPantalla + cantidad <= 40) {
 
-                Test.almacen.setPantalla(numPantalla + cantidad);
-                System.out.println("Pantallas en almacen => " + Test.almacen.getPantalla());
+                Test1.almacen.setPantalla(numPantalla + cantidad);
+                System.out.println("Pantallas en almacen => " + Test1.almacen.getPantalla());
                 Thread.sleep(1000/3);
             }
-            Test.almacen.mutexPantallas.release();
+            Test1.almacen.getMutexPantallas().release();
             //Test.almacen.mutexEnsamblaje.release();
 
         } catch (InterruptedException ex) {
@@ -82,15 +82,15 @@ public class Productor extends Thread {
 
     public void producirPinCarga(int cantidad) {
         try {
-            Test.almacen.mutexPinCarga.acquire();
-            int numPinCarga = Test.almacen.getPinCarga();
+            Test1.almacen.getMutexPinCarga().acquire();
+            int numPinCarga = Test1.almacen.getPinCarga();
             if (numPinCarga + cantidad <= 15) {
 
-                Test.almacen.setPinCarga(numPinCarga + cantidad);
-                System.out.println("Pines de carga en almacen => " + Test.almacen.getPinCarga());
+                Test1.almacen.setPinCarga(numPinCarga + cantidad);
+                System.out.println("Pines de carga en almacen => " + Test1.almacen.getPinCarga());
                 Thread.sleep(1000);
             }
-            Test.almacen.mutexPinCarga.release();
+            Test1.almacen.getMutexPinCarga().release();
             //Test.almacen.mutexEnsamblaje.release();
 
         } catch (InterruptedException ex) {
@@ -100,15 +100,15 @@ public class Productor extends Thread {
 
     public void producirBotones(int cantidad) {
         try {
-            Test.almacen.mutexBotones.acquire();           
-            int numBotones = Test.almacen.getBotones();
+            Test1.almacen.getMutexBotones().acquire();           
+            int numBotones = Test1.almacen.getBotones();
             if (numBotones + cantidad <= 45) {
 
-                Test.almacen.setBotones(numBotones + cantidad);
-                System.out.println("Botones en almacen => " + Test.almacen.getBotones());
+                Test1.almacen.setBotones(numBotones + cantidad);
+                System.out.println("Botones en almacen => " + Test1.almacen.getBotones());
                 Thread.sleep(1000);
             }
-            Test.almacen.mutexBotones.release();
+            Test1.almacen.getMutexBotones().release();
             //Test.almacen.mutexEnsamblaje.release();
 
         } catch (InterruptedException ex) {
