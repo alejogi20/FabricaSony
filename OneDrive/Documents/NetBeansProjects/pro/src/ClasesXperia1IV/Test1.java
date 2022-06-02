@@ -55,9 +55,9 @@ public class Test1 {
         
         //Ensamblador
         Ensamblador ensamblador1 = new Ensamblador(6, "e1");
-        //Ensamblador ensamblador2 = new Ensamblador(6, "e2");
-        //Ensamblador ensamblador3 = new Ensamblador(6, "e3");
-        //Ensamblador ensamblador4 = new Ensamblador(6, "e4");
+        Ensamblador ensamblador2 = new Ensamblador(6, "e2");
+        Ensamblador ensamblador3 = new Ensamblador(6, "e3");
+        Ensamblador ensamblador4 = new Ensamblador(6, "e4");
 
         //Jefe
         
@@ -81,9 +81,9 @@ public class Test1 {
         productor16.start();
         
         ensamblador1.start();
-        //ensamblador2.start();
-        //ensamblador3.start();
-        //ensamblador4.start();
+        ensamblador2.start();
+        ensamblador3.start();
+        ensamblador4.start();
         jefecito.start();
         
         

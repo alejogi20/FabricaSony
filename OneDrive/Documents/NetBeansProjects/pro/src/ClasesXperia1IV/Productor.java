@@ -97,7 +97,7 @@ public class Productor extends Thread {
 
                 Test1.almacen.setPinCarga(numPinCarga + cantidad);
                 System.out.println("Pines de carga en almacen => " + Test1.almacen.getPinCarga());
-                Thread.sleep(1000);
+               
             }
             Test1.almacen.getMutexPinCarga().release();
             //Test.almacen.mutexEnsamblaje.release();
