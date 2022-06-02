@@ -17,10 +17,12 @@ public class Jefe extends Thread {
 
     private double salario;
     private boolean stop;
+    private double horas;
 
     public Jefe() {
         this.salario = 7;
         this.stop = true;
+        this.horas = 0;
 
     }
 
@@ -31,8 +33,12 @@ public class Jefe extends Thread {
     @Override
     public void run() {
         while (this.stop) {
+            while (this.horas <= 708.33) {
+                clashRoyal();
+                revisarPapeles();
+            }
             conteoDias();
-            ClashRoyal();
+            this.horas = 0;
         }
 
     }
@@ -42,14 +48,12 @@ public class Jefe extends Thread {
             Test1.almacen.getMutexConteoDias().acquire();
             int countDown = Test1.almacen.getConteoDias();
             if (countDown > 0) {
-                
+
                 Thread.sleep((1000 / 24) * 7); // 6 + 1 horas
-                
+
                 Test1.almacen.setConteoDias(countDown - 1);
 
                 System.out.println("Quedan " + countDown + " dias");
-
-                Thread.sleep(10000); //Deberia ser 1000
 
             } else {
                 Test1.almacen.setConteoDias(30);
@@ -60,19 +64,36 @@ public class Jefe extends Thread {
         }
     }
 
-    public void ClashRoyal() {
+    public void clashRoyal() {
         try {
-            //Test1.almacen.getMutexConteoDias().acquire();
-                
-            Thread.sleep((long) Math.floor(Math.random()*(0.69 - 0.03 +1)+(0.03))); // 15 + 6 minutos : 21 minutos
 
-                System.out.println("El jefe esta jugando Clash Royal");
+            Random rand = new Random();
+            double randMinutos = rand.nextDouble() * (14.58 - 0.694) + (0.694);
 
-            //Test1.almacen.getMutexConteoDias().release();
+            Thread.sleep((long) randMinutos); // 15 + 6 minutos : 21 minutos
+            this.horas += (long) randMinutos;
+            //System.out.println(randMinutos);
+          //  System.out.println("El jefe esta jugando clash royale");
+
         } catch (InterruptedException ex) {
             //
         }
 
+    }
+
+    public void revisarPapeles() {
+        try {
+            Random rand = new Random();
+            double randMinutos = rand.nextDouble() * (14.58 - 0.694) + (0.694);
+
+            Thread.sleep((long) randMinutos); // 15 + 6 minutos : 21 minutos
+            this.horas += (long) randMinutos;
+            //System.out.println(randMinutos);
+          //  System.out.println("El jefe esta revisando papeles");
+
+        } catch (InterruptedException ex) {
+            //
+        }
 
     }
 

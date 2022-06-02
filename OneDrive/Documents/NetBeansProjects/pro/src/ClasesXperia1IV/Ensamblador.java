@@ -34,6 +34,7 @@ public class Ensamblador extends Thread {
 
     public void ensamblarTelefono(int cantidad) {
         try {
+
             Test1.almacen.getMutexCamaras().acquire();
             Test1.almacen.getMutexPantallas().acquire();
             Test1.almacen.getMutexPinCarga().acquire();
@@ -46,22 +47,29 @@ public class Ensamblador extends Thread {
             int numPantalla = Test1.almacen.getPantalla();
             int numBotones = Test1.almacen.getBotones();
 
-            if ((numCamaras - 4) > 0 && (numPinCarga - 1) > 0 && (numPantalla - 1) > 0 && (numBotones - 3) > 0) {
+            if ((numCamaras - 4) >= 0 && (numPinCarga - 1) >= 0 && (numPantalla - 1) >= 0 && (numBotones - 3) >= 0) {
 
-                Test1.almacen.setTelefonos(numTelefonos + cantidad);
                 Test1.almacen.setBotones(numBotones - 3);
                 Test1.almacen.setCamaras(numCamaras - 4);
                 Test1.almacen.setPantalla(numPantalla - 1);
                 Test1.almacen.setPinCarga(numPinCarga - 1);
-                System.out.println("Telefonos en almacen " + Test1.almacen.getTelefonos());
-                Thread.sleep(2000);
 
+                Test1.almacen.getMutexCamaras().release();
+                Test1.almacen.getMutexPantallas().release();
+                Test1.almacen.getMutexPinCarga().release();
+                Test1.almacen.getMutexBotones().release();
+
+                Thread.sleep(2000);
+                Test1.almacen.setTelefonos(numTelefonos + cantidad);
+                System.out.println("Telefonos en almacen " + Test1.almacen.getTelefonos());
+                Test1.almacen.getMutexEnsamblaje().release();
+            } else {
+                Test1.almacen.getMutexCamaras().release();
+                Test1.almacen.getMutexPantallas().release();
+                Test1.almacen.getMutexPinCarga().release();
+                Test1.almacen.getMutexBotones().release();
+                Test1.almacen.getMutexEnsamblaje().release();
             }
-            Test1.almacen.getMutexCamaras().release();
-            Test1.almacen.getMutexPantallas().release();
-            Test1.almacen.getMutexPinCarga().release();
-            Test1.almacen.getMutexBotones().release();
-            Test1.almacen.getMutexEnsamblaje().release();
 
         } catch (InterruptedException ex) {
             Logger.getLogger(Almacen.class.getName()).log(Level.SEVERE, null, ex);
