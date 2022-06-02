@@ -62,13 +62,13 @@ public class Jefe extends Thread {
 
     public void ClashRoyal() {
         try {
-            Test1.almacen.getMutexConteoDias().acquire();
+            //Test1.almacen.getMutexConteoDias().acquire();
                 
             Thread.sleep((long) Math.floor(Math.random()*(0.69 - 0.03 +1)+(0.03))); // 15 + 6 minutos : 21 minutos
 
                 System.out.println("El jefe esta jugando Clash Royal");
 
-            Test1.almacen.getMutexConteoDias().release();
+            //Test1.almacen.getMutexConteoDias().release();
         } catch (InterruptedException ex) {
             //
         }
