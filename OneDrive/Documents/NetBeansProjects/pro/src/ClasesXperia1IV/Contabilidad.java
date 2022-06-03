@@ -10,19 +10,32 @@ package ClasesXperia1IV;
  * @author AROMERO
  */
 public class Contabilidad {
-
+    
     private double salariosProd;
     private double salariosEns;
     private double salarioGer;
     private double salarioJefe;
     private double ventas;
-
+    
     public Contabilidad() {
         this.salariosProd = 0;
         this.salariosEns = 0;
         this.salarioGer = 0;
         this.salarioJefe = 0;
         this.ventas = 0;
+    }
+    
+    public void calculoSalarios() {
+        int salariosTotalesProd = Test1.cantidadPCamara * 5 * 24 * 30;
+        salariosTotalesProd += Test1.cantidadPPin * 5 * 24 * 30;
+        salariosTotalesProd += Test1.cantidadPPantalla * 3 * 24 * 30;
+        salariosTotalesProd += Test1.cantidadPbotones * 4 * 24 * 30;
+        this.setSalariosProd(salariosTotalesProd);
+        int salariosTotalesEn = Test1.cantidadEnsambladores * 6 * 24 * 30;
+        this.setSalariosEns(salariosTotalesEn);
+        this.setSalarioGer(180 * 30);
+        this.setSalarioJefe(7 * 24 * 30 - Test1.gerente.getDescuento());
+
     }
 
     /**

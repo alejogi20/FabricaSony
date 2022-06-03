@@ -14,6 +14,12 @@ public class Test1 {
     public static Contabilidad contabilidad;
     public static Jefe jefe;
     public static Gerente gerente;
+    public static int cantidadPCamara;
+    public static int cantidadPPin;
+    public static int cantidadPbotones;
+    public static int cantidadPPantalla;
+    public static int cantidadEnsambladores;
+
 
     /**
      * @param args the command line arguments

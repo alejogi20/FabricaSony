@@ -94,6 +94,8 @@ public class Gerente extends Thread {
                 Test1.almacen.setTelefonos(0);
 
                 Test1.almacen.getMutexEnsamblaje().release();
+
+                Test1.contabilidad.calculoSalarios();
                 this.descuento = 0;
             }
 
@@ -101,4 +103,37 @@ public class Gerente extends Thread {
             //
         }
     }
+
+    public double getSalario() {
+        return salario;
+    }
+
+    public void setSalario(double salario) {
+        this.salario = salario;
+    }
+
+    public boolean isStop() {
+        return stop;
+    }
+
+    public void setStop(boolean stop) {
+        this.stop = stop;
+    }
+
+    public double getHoras() {
+        return horas;
+    }
+
+    public void setHoras(double horas) {
+        this.horas = horas;
+    }
+
+    public double getDescuento() {
+        return descuento;
+    }
+
+    public void setDescuento(double descuento) {
+        this.descuento = descuento;
+    }
+
 }
