@@ -55,7 +55,9 @@ public class Jefe extends Thread {
 
                 Test1.almacen.setConteoDias(countDown - 1);
 
-                System.out.println("Quedan " + countDown + " dias");
+                //System.out.println("Quedan " + (countDown-1)  + " dias");
+
+
             } else {
                 Test1.almacen.setConteoDias(30);
             }
