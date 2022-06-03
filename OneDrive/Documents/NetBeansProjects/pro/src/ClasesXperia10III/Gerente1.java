@@ -3,22 +3,23 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ClasesXperia1IV;
+package ClasesXperia10III;
 
+import ClasesXperia1IV.*;
 import java.util.Random;
 
 /**
  *
  * @author AROMERO
  */
-public class Gerente extends Thread {
+public class Gerente1 extends Thread {
 
     private double salario;
     private boolean stop;
     private double horas;
     private double descuento;
 
-    public Gerente() {
+    public Gerente1() {
         this.salario = 180;
         this.stop = true;
         this.horas = 0;
@@ -52,14 +53,14 @@ public class Gerente extends Thread {
     public void conteoDiasG() {
         try {
 
-            if (Test1.almacen.getConteoDias() != 0) {
+            if (Test1.almacen1.getConteoDias() != 0) {
                 Thread.sleep((1000 / 24) * 6); // 6 horas
 
-                Test1.almacen.getMutexConteoDias().acquire();
-                int countDown = Test1.almacen.getConteoDias();
+                Test1.almacen1.getMutexConteoDias().acquire();
+                int countDown = Test1.almacen1.getConteoDias();
 
                 System.out.println("Quedan " + countDown + " dias");
-                Test1.almacen.getMutexConteoDias().release();
+                Test1.almacen1.getMutexConteoDias().release();
             }
 
         } catch (InterruptedException ex) {
@@ -76,7 +77,7 @@ public class Gerente extends Thread {
             this.horas += (long) randMinutos;
             Thread.sleep((long) randMinutos);
 
-            if (Test1.jefe.isJugando()) {
+            if (Test1.jefe1.isJugando()) {
                 System.out.println("El jefe esta jugando");
                 this.descuento += 2;
             }
@@ -88,14 +89,14 @@ public class Gerente extends Thread {
 
     public void despachar() {
         try {
-            if (Test1.almacen.getConteoDias() == 0) {
-                Test1.almacen.getMutexEnsamblaje().acquire();
-                Test1.contabilidad.setVentas(Test1.almacen.getTelefonos() * 1199);
-                Test1.almacen.setTelefonos(0);
+            if (Test1.almacen1.getConteoDias() == 0) {
+                Test1.almacen1.getMutexEnsamblaje().acquire();
+                Test1.contabilidad1.setVentas(Test1.almacen1.getTelefonos() * 1199);
+                Test1.almacen1.setTelefonos(0);
 
-                Test1.almacen.getMutexEnsamblaje().release();
+                Test1.almacen1.getMutexEnsamblaje().release();
 
-                Test1.contabilidad.calculoSalarios();
+                Test1.contabilidad1.calculoSalarios();
                 this.descuento = 0;
             }
 

@@ -4,6 +4,7 @@
  */
 package ClasesXperia1IV;
 
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -11,13 +12,13 @@ import java.util.logging.Logger;
  *
  * @author AROMERO
  */
-public class Productor extends Thread {
+public class Productor2 extends Thread {
 
     private double salario;
     private String tipo;
     private boolean stop;
 
-    public Productor(String id, String tipo, double salario) {
+    public Productor2(String id, String tipo, double salario) {
         this.tipo = tipo;
         this.salario = salario;
         this.stop = true;
@@ -53,76 +54,76 @@ public class Productor extends Thread {
             //double salarios = Test1.contabilidad.getSalariosProd();
             //Test.contabilidad.setSalariosProd(this.salario + salarios);
             //System.out.println("Salario => " + Test1.contabilidad.getSalariosProd());
-            Test1.almacen.getMutexCamaras().acquire();
-            int numCamaras = Test1.almacen.getCamaras();
+            Test2.almacen2.getMutexCamaras().acquire();
+            int numCamaras = Test2.almacen2.getCamaras();
             if (numCamaras + cantidad <= 20) {
 
-                Test1.almacen.setCamaras(numCamaras + cantidad);
-                System.out.println("Camaras en almacen => " + Test1.almacen.getCamaras());
+                Test2.almacen2.setCamaras(numCamaras + cantidad);
+                System.out.println("Camaras en almacen => " + Test2.almacen2.getCamaras());
 
             }
-            Test1.almacen.getMutexCamaras().release();
+            Test2.almacen2.getMutexCamaras().release();
 
             //Test.almacen.mutexEnsamblaje.release();
         } catch (InterruptedException ex) {
-            Logger.getLogger(Almacen.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Almacen2.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
     public void producirPantalla(int cantidad) {
         try {
             Thread.sleep(1000 / 3);
-            Test1.almacen.getMutexPantallas().acquire();
-            int numPantalla = Test1.almacen.getPantalla();
+            Test2.almacen2.getMutexPantallas().acquire();
+            int numPantalla = Test2.almacen2.getPantalla();
             if (numPantalla + cantidad <= 40) {
 
-                Test1.almacen.setPantalla(numPantalla + cantidad);
-                System.out.println("Pantallas en almacen => " + Test1.almacen.getPantalla());
+                Test2.almacen2.setPantalla(numPantalla + cantidad);
+                System.out.println("Pantallas en almacen => " + Test2.almacen2.getPantalla());
 
             }
-            Test1.almacen.getMutexPantallas().release();
+            Test2.almacen2.getMutexPantallas().release();
             //Test.almacen.mutexEnsamblaje.release();
 
         } catch (InterruptedException ex) {
-            Logger.getLogger(Almacen.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Almacen2.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
     public void producirPinCarga(int cantidad) {
         try {
             Thread.sleep(1000);
-            Test1.almacen.getMutexPinCarga().acquire();
-            int numPinCarga = Test1.almacen.getPinCarga();
+            Test2.almacen2.getMutexPinCarga().acquire();
+            int numPinCarga = Test2.almacen2.getPinCarga();
             if (numPinCarga + cantidad <= 15) {
 
-                Test1.almacen.setPinCarga(numPinCarga + cantidad);
-                System.out.println("Pines de carga en almacen => " + Test1.almacen.getPinCarga());
+                Test2.almacen2.setPinCarga(numPinCarga + cantidad);
+                System.out.println("Pines de carga en almacen => " + Test2.almacen2.getPinCarga());
                
             }
-            Test1.almacen.getMutexPinCarga().release();
+            Test2.almacen2.getMutexPinCarga().release();
             //Test.almacen.mutexEnsamblaje.release();
 
         } catch (InterruptedException ex) {
-            Logger.getLogger(Almacen.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Almacen2.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
     public void producirBotones(int cantidad) {
         try {
             Thread.sleep(1000);
-            Test1.almacen.getMutexBotones().acquire();
-            int numBotones = Test1.almacen.getBotones();
+            Test2.almacen2.getMutexBotones().acquire();
+            int numBotones = Test2.almacen2.getBotones();
             if (numBotones + cantidad <= 45) {
 
-                Test1.almacen.setBotones(numBotones + cantidad);
-                System.out.println("Botones en almacen => " + Test1.almacen.getBotones());
+                Test2.almacen2.setBotones(numBotones + cantidad);
+                System.out.println("Botones en almacen => " + Test2.almacen2.getBotones());
 
             }
-            Test1.almacen.getMutexBotones().release();
+            Test2.almacen2.getMutexBotones().release();
             //Test.almacen.mutexEnsamblaje.release();
 
         } catch (InterruptedException ex) {
-            Logger.getLogger(Almacen.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Almacen2.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

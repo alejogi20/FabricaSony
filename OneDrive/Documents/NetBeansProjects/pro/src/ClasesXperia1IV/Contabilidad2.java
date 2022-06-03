@@ -9,32 +9,53 @@ package ClasesXperia1IV;
  *
  * @author AROMERO
  */
-public class Contabilidad {
-    
+public class Contabilidad2 {
+
     private double salariosProd;
     private double salariosEns;
     private double salarioGer;
     private double salarioJefe;
+    private double costos;
     private double ventas;
-    
-    public Contabilidad() {
+    private double ganancia;
+
+    public Contabilidad2() {
         this.salariosProd = 0;
         this.salariosEns = 0;
         this.salarioGer = 0;
         this.salarioJefe = 0;
         this.ventas = 0;
+        this.costos = 0;
+        this.ganancia = 0;
     }
-    
+
+    public double getCostos() {
+        return costos;
+    }
+
+    public void setCostos(double costos) {
+        this.costos = costos;
+    }
+
+    public double getGanancia() {
+        return ganancia;
+    }
+
+    public void setGanancia(double ganancia) {
+        this.ganancia = ganancia;
+    }
+
     public void calculoSalarios() {
-        int salariosTotalesProd = Test1.cantidadPCamara * 5 * 24 * 30;
-        salariosTotalesProd += Test1.cantidadPPin * 5 * 24 * 30;
-        salariosTotalesProd += Test1.cantidadPPantalla * 3 * 24 * 30;
-        salariosTotalesProd += Test1.cantidadPbotones * 4 * 24 * 30;
+        int salariosTotalesProd = Test2.cantidadPCamara * 5 * 24 * 30;
+        salariosTotalesProd += Test2.cantidadPPin * 5 * 24 * 30;
+        salariosTotalesProd += Test2.cantidadPPantalla * 3 * 24 * 30;
+        salariosTotalesProd += Test2.cantidadPbotones * 4 * 24 * 30;
         this.setSalariosProd(salariosTotalesProd);
-        int salariosTotalesEn = Test1.cantidadEnsambladores * 6 * 24 * 30;
+        int salariosTotalesEn = Test2.cantidadEnsambladores * 6 * 24 * 30;
         this.setSalariosEns(salariosTotalesEn);
         this.setSalarioGer(180 * 30);
-        this.setSalarioJefe(7 * 24 * 30 - Test1.gerente.getDescuento());
+        this.setSalarioJefe(7 * 24 * 30 - Test2.gerente2.getDescuento());
+        this.costos = this.salarioGer + this.salarioJefe + this.salariosEns + this.salariosProd;
 
     }
 
@@ -107,5 +128,5 @@ public class Contabilidad {
     public void setVentas(double ventas) {
         this.ventas = ventas;
     }
-    
+
 }

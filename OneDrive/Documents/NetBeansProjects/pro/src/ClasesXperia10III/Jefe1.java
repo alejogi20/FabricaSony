@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ClasesXperia1IV;
+package ClasesXperia10III;
 
+import ClasesXperia1IV.*;
 import static java.lang.Math.random;
 import java.util.Random;
 import java.util.concurrent.Semaphore;
@@ -13,14 +14,14 @@ import java.util.concurrent.Semaphore;
  *
  * @author AROMERO
  */
-public class Jefe extends Thread {
+public class Jefe1 extends Thread {
 
     private double salario;
     private boolean stop;
     private double horas;
     private boolean jugando;
 
-    public Jefe() {
+    public Jefe1() {
         this.salario = 7;
         this.stop = true;
         this.horas = 0;
@@ -47,21 +48,21 @@ public class Jefe extends Thread {
 
     public void conteoDias() {
         try {
-            Test1.almacen.getMutexConteoDias().acquire();
-            int countDown = Test1.almacen.getConteoDias();
+            Test1.almacen1.getMutexConteoDias().acquire();
+            int countDown = Test1.almacen1.getConteoDias();
             if (countDown > 0) {
 
                 Thread.sleep((1000 / 24) * 7); // 6 + 1 horas
 
-                Test1.almacen.setConteoDias(countDown - 1);
+                Test1.almacen1.setConteoDias(countDown - 1);
 
                 //System.out.println("Quedan " + (countDown-1)  + " dias");
 
 
             } else {
-                Test1.almacen.setConteoDias(30);
+                Test1.almacen1.setConteoDias(30);
             }
-            Test1.almacen.getMutexConteoDias().release();
+            Test1.almacen1.getMutexConteoDias().release();
         } catch (InterruptedException ex) {
             //
         }
