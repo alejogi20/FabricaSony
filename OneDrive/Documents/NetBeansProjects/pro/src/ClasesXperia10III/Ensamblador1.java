@@ -46,8 +46,8 @@ public class Ensamblador1 extends Thread {
             if (!this.tieneCamaras) {
                 Test1.almacen1.getMutexCamaras().acquire();
                 int numCamaras = Test1.almacen1.getCamaras();
-                if ((numCamaras - 4) >= 0) {
-                    Test1.almacen1.setCamaras(numCamaras - 4);
+                if ((numCamaras - 2) >= 0) {
+                    Test1.almacen1.setCamaras(numCamaras - 2);
                     this.tieneCamaras = true;
                 }
                 Test1.almacen1.getMutexCamaras().release();
@@ -76,8 +76,8 @@ public class Ensamblador1 extends Thread {
             if (!this.tieneBotones) {
                 Test1.almacen1.getMutexBotones().acquire();
                 int numBotones = Test1.almacen1.getBotones();
-                if ((numBotones - 3) >= 0) {
-                    Test1.almacen1.setBotones(numBotones - 3);
+                if ((numBotones - 2) >= 0) {
+                    Test1.almacen1.setBotones(numBotones - 2);
                     this.tieneBotones = true;
                 }
                 Test1.almacen1.getMutexBotones().release();

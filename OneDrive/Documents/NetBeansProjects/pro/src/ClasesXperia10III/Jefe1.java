@@ -36,7 +36,7 @@ public class Jefe1 extends Thread {
     @Override
     public void run() {
         while (this.stop) {
-            while (this.horas <= 708.33) {
+            while (this.horas <= 958.33) {
                 clashRoyal();
                 revisarPapeles();
             }
@@ -52,7 +52,7 @@ public class Jefe1 extends Thread {
             int countDown = Test1.almacen1.getConteoDias();
             if (countDown > 0) {
 
-                Thread.sleep((1000 / 24) * 7); // 6 + 1 horas
+                Thread.sleep((1000 / 24)); // 1 horas
 
                 Test1.almacen1.setConteoDias(countDown - 1);
 
@@ -72,7 +72,7 @@ public class Jefe1 extends Thread {
         try {
 
             Random rand = new Random();
-            double randMinutos = rand.nextDouble() * (14.58 - 0.694) + (0.694);
+            double randMinutos = rand.nextDouble() * (10.42 - 0.694) + (0.694);
             this.jugando = true;
             Thread.sleep((long) randMinutos); // 15 + 6 minutos : 21 minutos
 
@@ -89,7 +89,7 @@ public class Jefe1 extends Thread {
     public void revisarPapeles() {
         try {
             Random rand = new Random();
-            double randMinutos = rand.nextDouble() * (14.58 - 0.694) + (0.694);
+            double randMinutos = rand.nextDouble() * (10.42 - 0.694) + (0.694);
             this.jugando = false;
             Thread.sleep((long) randMinutos); // 
 

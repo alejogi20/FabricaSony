@@ -39,7 +39,7 @@ public class Productor1 extends Thread {
                 case "pantalla":
                     producirPantalla(1);
                 case "botones":
-                    producirBotones(1);
+                    producirBotones(4);
 
                 default:
             }
@@ -50,7 +50,7 @@ public class Productor1 extends Thread {
 
     public void producirCamara(int cantidad) {
         try {
-            Thread.sleep(3000);
+            Thread.sleep(2000);
             //double salarios = Test1.contabilidad.getSalariosProd();
             //Test.contabilidad.setSalariosProd(this.salario + salarios);
             //System.out.println("Salario => " + Test1.contabilidad.getSalariosProd());
@@ -72,7 +72,7 @@ public class Productor1 extends Thread {
 
     public void producirPantalla(int cantidad) {
         try {
-            Thread.sleep(1000 / 3);
+            Thread.sleep(1000);
             Test1.almacen1.getMutexPantallas().acquire();
             int numPantalla = Test1.almacen1.getPantalla();
             if (numPantalla + cantidad <= 40) {
@@ -91,7 +91,7 @@ public class Productor1 extends Thread {
 
     public void producirPinCarga(int cantidad) {
         try {
-            Thread.sleep(1000);
+            Thread.sleep(2000);
             Test1.almacen1.getMutexPinCarga().acquire();
             int numPinCarga = Test1.almacen1.getPinCarga();
             if (numPinCarga + cantidad <= 15) {

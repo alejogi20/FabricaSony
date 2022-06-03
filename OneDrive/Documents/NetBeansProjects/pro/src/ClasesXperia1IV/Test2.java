@@ -4,6 +4,12 @@
  */
 package ClasesXperia1IV;
 
+import static ClasesXperia10III.Test1.cantidadEnsambladores;
+import static ClasesXperia10III.Test1.cantidadPCamara;
+import static ClasesXperia10III.Test1.cantidadPPantalla;
+import static ClasesXperia10III.Test1.cantidadPPin;
+import static ClasesXperia10III.Test1.cantidadPbotones;
+
 /**
  *
  * @author AROMERO
@@ -25,6 +31,12 @@ public class Test2 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        
+        cantidadPCamara = 8;
+        cantidadPPin = 2;
+        cantidadPbotones = 4;
+        cantidadPPantalla = 2;
+        cantidadEnsambladores = 4;
 
         //Almacen
         almacen2 = new Almacen2(0, 0, 0, 0, 0);

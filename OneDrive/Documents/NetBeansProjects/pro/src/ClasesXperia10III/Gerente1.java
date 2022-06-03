@@ -91,7 +91,7 @@ public class Gerente1 extends Thread {
         try {
             if (Test1.almacen1.getConteoDias() == 0) {
                 Test1.almacen1.getMutexEnsamblaje().acquire();
-                Test1.contabilidad1.setVentas(Test1.almacen1.getTelefonos() * 1199);
+                Test1.contabilidad1.setVentas(Test1.almacen1.getTelefonos() * 600);
                 Test1.almacen1.setTelefonos(0);
 
                 Test1.almacen1.getMutexEnsamblaje().release();

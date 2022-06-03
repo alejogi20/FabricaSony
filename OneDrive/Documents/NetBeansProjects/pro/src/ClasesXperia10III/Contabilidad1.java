@@ -32,15 +32,16 @@ public class Contabilidad1 {
     }
 
     public void calculoSalarios() {
-        int salariosTotalesProd = Test2.cantidadPCamara * 5 * 24 * 30;
-        salariosTotalesProd += Test2.cantidadPPin * 5 * 24 * 30;
-        salariosTotalesProd += Test2.cantidadPPantalla * 3 * 24 * 30;
-        salariosTotalesProd += Test2.cantidadPbotones * 4 * 24 * 30;
+        int salariosTotalesProd = Test1.cantidadPCamara * 5 * 24 * 30;
+        salariosTotalesProd += Test1.cantidadPPin * 5 * 24 * 30;
+        salariosTotalesProd += Test1.cantidadPPantalla * 3 * 24 * 30;
+        salariosTotalesProd += Test1.cantidadPbotones * 4 * 24 * 30;
         this.setSalariosProd(salariosTotalesProd);
-        int salariosTotalesEn = Test2.cantidadEnsambladores * 6 * 24 * 30;
+        int salariosTotalesEn = Test1.cantidadEnsambladores * 6 * 24 * 30;
         this.setSalariosEns(salariosTotalesEn);
         this.setSalarioGer(180 * 30);
         this.setSalarioJefe(7 * 24 * 30 - Test1.gerente1.getDescuento());
+        this.setCostos(this.getSalarioGer() + this.getSalarioJefe() + this.getSalariosEns() + this.getSalariosProd());
 
     }
 
