@@ -12,21 +12,25 @@ import ClasesXperia1IV.*;
  * @author Alejo
  */
 public class Contabilidad1 {
-    
+
     private double salariosProd;
     private double salariosEns;
     private double salarioGer;
     private double salarioJefe;
     private double ventas;
-    
+    private double costos;
+    private double ganancia;
+
     public Contabilidad1() {
         this.salariosProd = 0;
         this.salariosEns = 0;
         this.salarioGer = 0;
         this.salarioJefe = 0;
         this.ventas = 0;
+        this.costos = 0;
+        this.ganancia = 0;
     }
-    
+
     public void calculoSalarios() {
         int salariosTotalesProd = Test2.cantidadPCamara * 5 * 24 * 30;
         salariosTotalesProd += Test2.cantidadPPin * 5 * 24 * 30;
@@ -109,5 +113,33 @@ public class Contabilidad1 {
     public void setVentas(double ventas) {
         this.ventas = ventas;
     }
-    
+
+    /**
+     * @return the costos
+     */
+    public double getCostos() {
+        return costos;
+    }
+
+    /**
+     * @param costos the costos to set
+     */
+    public void setCostos(double costos) {
+        this.costos = costos;
+    }
+
+    /**
+     * @return the ganancia
+     */
+    public double getGanancia() {
+        return ganancia;
+    }
+
+    /**
+     * @param ganancia the ganancia to set
+     */
+    public void setGanancia(double ganancia) {
+        this.ganancia = ganancia;
+    }
+
 }

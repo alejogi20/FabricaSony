@@ -97,7 +97,18 @@ public class Gerente1 extends Thread {
                 Test1.almacen1.getMutexEnsamblaje().release();
 
                 Test1.contabilidad1.calculoSalarios();
+                System.out.println("Las ventas totales son => " + Test1.contabilidad1.getVentas());
+                System.out.println("El costo por salarios es => " + Test1.contabilidad1.getCostos());
+                Test1.contabilidad1.setGanancia(Test1.contabilidad1.getVentas() - Test1.contabilidad1.getCostos());
+                System.out.println("Las ganancia total es => " + Test1.contabilidad1.getGanancia());
                 this.descuento = 0;
+                Test1.contabilidad1.setGanancia(0);
+                Test1.contabilidad1.setVentas(0);
+                Test1.contabilidad1.setCostos(0);
+                Test1.contabilidad1.setSalarioJefe(0);
+                Test1.contabilidad1.setSalarioGer(0);
+                Test1.contabilidad1.setSalariosEns(0);
+                Test1.contabilidad1.setSalariosProd(0);
             }
 
         } catch (InterruptedException ex) {

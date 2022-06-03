@@ -55,7 +55,7 @@ public class Contabilidad2 {
         this.setSalariosEns(salariosTotalesEn);
         this.setSalarioGer(180 * 30);
         this.setSalarioJefe(7 * 24 * 30 - Test2.gerente2.getDescuento());
-        this.costos = this.salarioGer + this.salarioJefe + this.salariosEns + this.salariosProd;
+        this.setCostos(this.getSalarioGer() + this.getSalarioJefe() + this.getSalariosEns() + this.getSalariosProd());
 
     }
 
