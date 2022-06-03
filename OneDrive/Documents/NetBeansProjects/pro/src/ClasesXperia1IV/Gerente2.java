@@ -102,6 +102,7 @@ public class Gerente2 extends Thread {
                 System.out.println("El costo por salarios es => " + Test2.contabilidad2.getCostos());
                 Test2.contabilidad2.setGanancia(Test2.contabilidad2.getVentas() - Test2.contabilidad2.getCostos());
                 System.out.println("Las ganancia total es => " + Test2.contabilidad2.getGanancia());
+                System.out.println("Las multas al jefe tienen un valor de => " + this.descuento);
                 this.descuento = 0;
                 Test2.contabilidad2.setGanancia(0);
                 Test2.contabilidad2.setVentas(0);
