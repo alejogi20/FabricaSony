@@ -18,11 +18,13 @@ public class Jefe extends Thread {
     private double salario;
     private boolean stop;
     private double horas;
+    private boolean jugando;
 
     public Jefe() {
         this.salario = 7;
         this.stop = true;
         this.horas = 0;
+        this.jugando = false;
 
     }
 
@@ -54,7 +56,6 @@ public class Jefe extends Thread {
                 Test1.almacen.setConteoDias(countDown - 1);
 
                 System.out.println("Quedan " + countDown + " dias");
-
             } else {
                 Test1.almacen.setConteoDias(30);
             }
@@ -69,11 +70,12 @@ public class Jefe extends Thread {
 
             Random rand = new Random();
             double randMinutos = rand.nextDouble() * (14.58 - 0.694) + (0.694);
-
+            this.jugando = true;
             Thread.sleep((long) randMinutos); // 15 + 6 minutos : 21 minutos
+
             this.horas += (long) randMinutos;
             //System.out.println(randMinutos);
-          //  System.out.println("El jefe esta jugando clash royale");
+            //  System.out.println("El jefe esta jugando clash royale");
 
         } catch (InterruptedException ex) {
             //
@@ -85,16 +87,49 @@ public class Jefe extends Thread {
         try {
             Random rand = new Random();
             double randMinutos = rand.nextDouble() * (14.58 - 0.694) + (0.694);
+            this.jugando = false;
+            Thread.sleep((long) randMinutos); // 
 
-            Thread.sleep((long) randMinutos); // 15 + 6 minutos : 21 minutos
             this.horas += (long) randMinutos;
             //System.out.println(randMinutos);
-          //  System.out.println("El jefe esta revisando papeles");
+            //  System.out.println("El jefe esta revisando papeles");
 
         } catch (InterruptedException ex) {
             //
         }
 
+    }
+
+    public double getSalario() {
+        return salario;
+    }
+
+    public void setSalario(double salario) {
+        this.salario = salario;
+    }
+
+    public boolean isStop() {
+        return stop;
+    }
+
+    public void setStop(boolean stop) {
+        this.stop = stop;
+    }
+
+    public double getHoras() {
+        return horas;
+    }
+
+    public void setHoras(double horas) {
+        this.horas = horas;
+    }
+
+    public boolean isJugando() {
+        return jugando;
+    }
+
+    public void setJugando(boolean jugando) {
+        this.jugando = jugando;
     }
 
 }
